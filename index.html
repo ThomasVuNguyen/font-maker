@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font Maker - Create Custom Fonts</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>✍️ Font Maker</h1>
+            <p class="subtitle">Create custom fonts using your hand drawings</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Character Selection Sidebar -->
+            <aside class="character-sidebar">
+                <h3>Characters</h3>
+                <div class="character-categories">
+                    <div class="category">
+                        <h4>Uppercase</h4>
+                        <div class="character-grid" id="uppercase-grid"></div>
+                    </div>
+                    <div class="category">
+                        <h4>Lowercase</h4>
+                        <div class="character-grid" id="lowercase-grid"></div>
+                    </div>
+                    <div class="category">
+                        <h4>Numbers</h4>
+                        <div class="character-grid" id="numbers-grid"></div>
+                    </div>
+                    <div class="category">
+                        <h4>Symbols</h4>
+                        <div class="character-grid" id="symbols-grid"></div>
+                    </div>
+                </div>
+                <div class="progress-info">
+                    <p>Progress: <span id="progress-count">0</span>/<span id="total-count">0</span></p>
+                </div>
+            </aside>
+
+            <!-- Drawing Area -->
+            <main class="drawing-area">
+                <div class="current-character">
+                    <h2>Draw: <span id="current-char">A</span></h2>
+                </div>
+
+                <div class="canvas-container">
+                    <canvas id="drawing-canvas" width="400" height="400"></canvas>
+                    <div class="baseline" title="Baseline for letter alignment"></div>
+                </div>
+
+                <div class="tools">
+                    <div class="tool-group">
+                        <label for="brush-size">Brush Size:</label>
+                        <input type="range" id="brush-size" min="1" max="30" value="5">
+                        <span id="brush-size-value">5</span>px
+                    </div>
+                    <div class="tool-group">
+                        <button id="pen-tool" class="tool-btn active">✏️ Pen</button>
+                        <button id="eraser-tool" class="tool-btn">🧹 Eraser</button>
+                        <button id="clear-btn" class="tool-btn danger">🗑️ Clear</button>
+                    </div>
+                    <div class="tool-group">
+                        <button id="save-char" class="btn-primary">✓ Save Character</button>
+                        <button id="next-char" class="btn-secondary">Next →</button>
+                    </div>
+                </div>
+
+                <!-- Preview Section -->
+                <div class="preview-section">
+                    <h3>Preview Your Font</h3>
+                    <input type="text" id="preview-text" placeholder="Type to preview..." value="The quick brown fox">
+                    <div id="preview-output"></div>
+                </div>
+
+                <!-- Export Section -->
+                <div class="export-section">
+                    <h3>Export Font</h3>
+                    <div class="export-controls">
+                        <input type="text" id="font-name" placeholder="Font Name" value="MyHandFont">
+                        <button id="download-btn" class="btn-primary btn-large">⬇️ Download Font (.ttf)</button>
+                    </div>
+                    <p class="help-text">Draw at least A-Z to create a basic font</p>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/opentype.js@latest/dist/opentype.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
